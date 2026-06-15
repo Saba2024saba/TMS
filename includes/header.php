@@ -31,7 +31,8 @@ $pageTitle = $pageTitle ?? 'Tuition Management System';
                     </li>
                     <li class="nav-item"><a class="btn btn-light btn-sm" href="<?= e(url('/auth/logout.php')) ?>">Logout</a></li>
                 <?php else: ?>
-                    <li class="nav-item"><a class="btn btn-light btn-sm" href="<?= e(url('/auth/login.php')) ?>">Login</a></li>
+                    <li class="nav-item"><a class="btn btn-light btn-sm" href="<?= e(url('/login')) ?>">Login</a></li>
+                    <li class="nav-item"><a class="btn btn-outline-light btn-sm" href="<?= e(url('/auth/register.php')) ?>">Registration</a></li>
                 <?php endif; ?>
             </ul>
         </div>

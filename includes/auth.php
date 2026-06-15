@@ -17,7 +17,7 @@ function app_base(): string
     $parts = $scriptDir === '' ? [] : explode('/', trim($scriptDir, '/'));
     $section = end($parts);
 
-    if (in_array($section, ['admin', 'auth', 'tuition', 'tutor', 'tutors', 'student', 'includes'], true)) {
+    if (in_array($section, ['admin', 'auth', 'login', 'tuition', 'tutor', 'tutors', 'student', 'includes'], true)) {
         array_pop($parts);
     }
 
@@ -45,7 +45,7 @@ function require_login(?string $role = null): void
 {
     $user = current_user();
     if (!$user) {
-        redirect_to('/auth/login.php');
+        redirect_to('/login');
     }
 
     if ($role !== null && $user['role'] !== $role) {
@@ -106,7 +106,7 @@ function redirect_by_role(string $role): void
         'student' => '/student/dashboard.php',
     ];
 
-    redirect_to($targets[$role] ?? '/auth/login.php');
+    redirect_to($targets[$role] ?? '/login');
 }
 
 function e(?string $value): string
@@ -117,5 +117,5 @@ function e(?string $value): string
 function role_home(): string
 {
     $user = current_user();
-    return $user ? url('/' . $user['role'] . '/dashboard.php') : url('/auth/login.php');
+    return $user ? url('/' . $user['role'] . '/dashboard.php') : url('/index.php');
 }

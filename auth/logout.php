@@ -4,7 +4,7 @@ require_once __DIR__ . '/../includes/auth.php';
 session_unset();
 session_destroy();
 
-redirect_to('/auth/login.php');
+redirect_to('/login');
 exit;
 
 
